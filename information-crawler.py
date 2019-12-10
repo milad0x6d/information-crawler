@@ -10,8 +10,9 @@ class Wikipedia:
 		soup = BeautifulSoup(con,'lxml')
 		div = soup.find("div",{"class":"mw-parser-output"})
 		for row in div.findAll('p'):
-			if row.getText():
-				print row.getText()
+			print row.getText()
+			engine.say(row.getText())
+		engine.runAndWait()
 
 engine = pyttsx.init()
 engine.setProperty("rate",150)
